@@ -1219,7 +1219,7 @@ public:
             });
         });
 
-        webrtc::AudioProcessingBuilder builder;
+/*        webrtc::AudioProcessingBuilder builder;
         builder.SetCaptureAnalyzer(std::unique_ptr<AudioCaptureAnalyzer>(analyzer));
         webrtc::AudioProcessing *apm = builder.Create();
 
@@ -1231,9 +1231,9 @@ public:
 
 		audioConfig.high_pass_filter.enabled = true;
 
-//        apm->ApplyConfig(audioConfig);
+        apm->ApplyConfig(audioConfig);*/
 
-        mediaDeps.audio_processing = apm;
+        mediaDeps.audio_processing = nullptr;
 
         mediaDeps.onUnknownAudioSsrc = [weak](uint32_t ssrc) {
             getMediaThread()->PostTask(RTC_FROM_HERE, [weak, ssrc](){
